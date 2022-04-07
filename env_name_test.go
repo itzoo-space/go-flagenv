@@ -6,15 +6,15 @@ import (
 	"testing"
 )
 
-func TestFlagEnv_Usage(t *testing.T) {
+func TestFlagEnv_EnvName(t *testing.T) {
 	t.Parallel()
 
 	tCMD := getCMD(t)
 	tFlagEnv := getFlagEnv(t, tCMD.Flags())
 
-	rStr, err := random.StringRange(1, 1000000)
+	rStr, err := random.StringRange(1, 1000)
 	require.NoError(t, err)
 
-	tFlagEnv.SetUsage(rStr)
-	require.Equal(t, rStr, tFlagEnv.Usage())
+	tFlagEnv.SetEnvName(rStr)
+	require.Equal(t, rStr, tFlagEnv.EnvName())
 }
